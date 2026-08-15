@@ -233,9 +233,14 @@
         loadConfigs();
 
         function copy_config(link) {
-            link.select();
-            document.execCommand("copy");
-            alert("Copied the vless config: " + $(link).val());
+            navigator.clipboard.writeText(link)
+                .then(() => {
+                    alert("Copied the vless config: " + link);
+                })
+                .catch(err => {
+                    console.error("Copy failed:", err);
+                    alert("Failed to copy the vless config.");
+                });
         }
 
         function generateUUID(inputId) {
