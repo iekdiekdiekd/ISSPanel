@@ -209,7 +209,7 @@
                 params.set('type', c.protocol);
                 params.set('host', c.host);
                 params.set('path', c.path);
-                if (protocol === 'xhttp') params.set('mode', 'auto');
+                if (c.protocol === 'xhttp') params.set('mode', 'auto');
 
                 const link = `vless://${c.uuid}@${c.address}:${c.port}?${params.toString()}#${encodeURIComponent(c.username)}`;
 
